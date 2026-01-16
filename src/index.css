@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Future Me AI - Design System
+   Theme: Teal/White/Blue - Clean & Professional Education
+   Feel: Trustworthy, Calming, Modern EdTech
+*/
+
+
+@layer base {
+  :root {
+    /* Main backgrounds - Clean white with subtle teal tint */
+    --background: 180 25% 97%;
+    --foreground: 200 30% 12%;
+
+    /* Card surfaces - Slight teal tint */
+    --card: 180 30% 99%;
+    --card-foreground: 200 30% 12%;
+
+    --popover: 180 25% 99%;
+    --popover-foreground: 200 30% 12%;
+
+    /* Primary - Teal */
+    --primary: 174 72% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light teal-blue */
+    --secondary: 190 30% 92%;
+    --secondary-foreground: 200 30% 20%;
+
+    /* Muted - Soft teal gray */
+    --muted: 180 20% 90%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Accent - Blue */
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - Emerald */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Orange */
+    --warning: 35 100% 50%;
+    --warning-foreground: 35 100% 10%;
+
+    /* Borders & inputs - Teal tinted */
+    --border: 190 25% 85%;
+    --input: 190 25% 92%;
+    --ring: 174 72% 50%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(174, 72%, 40%) 0%, hsl(210, 100%, 50%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(180, 30%, 99%) 0%, hsl(190, 25%, 96%) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(174, 72%, 50%, 0.15) 0%, transparent 70%);
+    --gradient-subtle: linear-gradient(135deg, hsl(180, 25%, 97%) 0%, hsl(190, 30%, 94%) 100%);
+    
+    /* Holland Colors - Pastel */
+    --holland-r: 0 75% 60%;
+    --holland-i: 220 80% 60%;
+    --holland-a: 280 75% 65%;
+    --holland-s: 160 70% 50%;
+    --holland-e: 35 90% 55%;
+    --holland-c: 190 90% 50%;
+
+    /* Big Five Colors - Indigo/Violet Pastel */
+    --bigfive-o: 280 60% 65%;
+    --bigfive-c: 220 70% 60%;
+    --bigfive-e: 35 80% 55%;
+    --bigfive-a: 160 65% 50%;
+    --bigfive-n: 350 70% 60%;
+
+    /* Sidebar */
+    --sidebar-background: 180 25% 98%;
+    --sidebar-foreground: 200 30% 15%;
+    --sidebar-primary: 174 72% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 190 30% 92%;
+    --sidebar-accent-foreground: 200 30% 20%;
+    --sidebar-border: 190 25% 85%;
+    --sidebar-ring: 174 72% 50%;
+  }
+
+  .dark {
+    /* Dark theme with teal accent */
+    --background: 200 30% 8%;
+    --foreground: 180 20% 98%;
+    --card: 200 25% 12%;
+    --card-foreground: 180 20% 98%;
+    --popover: 200 25% 12%;
+    --popover-foreground: 180 20% 98%;
+    --primary: 174 72% 50%;
+    --primary-foreground: 200 30% 8%;
+    --secondary: 200 25% 18%;
+    --secondary-foreground: 180 20% 98%;
+    --muted: 200 20% 16%;
+    --muted-foreground: 180 15% 65%;
+    --accent: 210 100% 55%;
+    --accent-foreground: 200 30% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 160 84% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 35 100% 55%;
+    --warning-foreground: 220 40% 8%;
+    --border: 200 25% 22%;
+    --input: 200 25% 18%;
+    --ring: 174 72% 55%;
+    --sidebar-background: 200 30% 10%;
+    --sidebar-foreground: 180 20% 98%;
+    --sidebar-primary: 174 72% 50%;
+    --sidebar-primary-foreground: 200 30% 8%;
+    --sidebar-accent: 200 25% 18%;
+    --sidebar-accent-foreground: 180 20% 98%;
+    --sidebar-border: 200 25% 22%;
+    --sidebar-ring: 174 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card backdrop-blur-xl border border-border/50 rounded-xl shadow-lg;
+    background: var(--gradient-card);
+  }
+
+  .subtle-card {
+    @apply bg-secondary/30 border border-border/30 rounded-xl;
+    background: var(--gradient-subtle);
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.25);
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .answer-option {
+    @apply relative px-6 py-3 rounded-lg border-2 border-border/50 cursor-pointer transition-all duration-300;
+  }
+
+  .answer-option:hover {
+    @apply border-primary/50 bg-primary/5;
+  }
+
+  .answer-option.selected {
+    @apply border-primary bg-primary/10;
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+
+  .chat-bubble-user {
+    @apply bg-primary text-primary-foreground rounded-2xl rounded-br-md px-4 py-3 max-w-[80%];
+  }
+
+  .chat-bubble-ai {
+    @apply bg-secondary text-secondary-foreground rounded-2xl rounded-bl-md px-4 py-3 max-w-[80%];
+  }
+
+  .nav-item {
+    @apply relative px-4 py-2 text-muted-foreground transition-colors duration-300 cursor-pointer;
+  }
+
+  .nav-item:hover {
+    @apply text-foreground;
+  }
+
+  .nav-item.active {
+    @apply text-primary;
+  }
+
+  .nav-item.active::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-primary rounded-full;
+  }
+
+  .todo-item {
+    @apply flex items-center gap-3 p-4 bg-card rounded-lg border border-border/30 transition-all duration-300;
+  }
+
+  .todo-item:hover {
+    @apply bg-secondary/50 border-border/50 shadow-sm;
+  }
+
+  .todo-item.completed {
+    @apply opacity-60;
+  }
+
+  .todo-item.completed .todo-text {
+    @apply line-through text-muted-foreground;
+  }
+
+  .roadmap-phase {
+    @apply relative pl-8 pb-8 border-l-2 border-primary/30;
+  }
+
+  .roadmap-phase::before {
+    content: '';
+    @apply absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background;
+  }
+
+  .roadmap-phase.completed::before {
+    @apply bg-success;
+  }
+
+  .holland-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium;
+  }
+
+  /* Single question test UI */
+  .question-card {
+    @apply bg-card border border-border/50 rounded-2xl shadow-xl p-8 transition-all duration-500;
+  }
+
+  .question-option {
+    @apply w-full p-4 rounded-xl border-2 border-border/50 text-left transition-all duration-300 hover:border-primary/50 hover:bg-primary/5;
+  }
+
+  .question-option.selected {
+    @apply border-primary bg-primary/10;
+  }
+
+  /* Premium Chart Card */
+  .chart-card {
+    @apply bg-card border border-border/40 rounded-2xl shadow-xl p-6 overflow-hidden;
+    background: linear-gradient(145deg, hsl(180, 30%, 99%) 0%, hsl(190, 25%, 97%) 100%);
+  }
+
+  /* Profile Card */
+  .profile-card {
+    @apply bg-card border border-border/30 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px -5px hsl(var(--primary) / 0.35);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes chartDraw {
+  from {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.typing-dot {
+  animation: typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Recharts custom styles */
+.recharts-polar-grid-angle line {
+  stroke: hsl(var(--border)) !important;
+  stroke-opacity: 0.5;
+}
+
+.recharts-polar-grid-concentric circle {
+  stroke: hsl(var(--border)) !important;
+  stroke-opacity: 0.3;
+}
+
+.recharts-polar-angle-axis-tick-value {
+  fill: hsl(var(--foreground)) !important;
+  font-weight: 500;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
